@@ -27,22 +27,52 @@ class Search extends CI_Controller {
 				"pageTitle" => "Zoo_animal",
 				"data" => $data ));
 	}
-	
-	public function editAnimal()
+	public function edit_animal()
 	{
 		$this->load->helper('url');
+		
+		//need to do login check
+		//not yet done
+		
+		echo "hi";
+		
 		//load data from user
+		/*$scientific_name = $this->input->post("scientific_name");
+		if ( isset( $scientific_name ) )
+		{
+			echo "="+$scientific_name+"=";
+		}
+		
+		if ( isset($this->input->post("quantity")) )
+		{
+			$quantity = $this->input->post("quantity");
+		}
+		if ( isset($this->input->post("food")) )
+		{
+			$food = $this->input->post("food");
+		}
+		if ( isset($this->input->post("native_area")) )
+		{
+			$native_area = $this->input->post("native_area");
+		}
+		*/
+		$id = $this->input->post("id");
 		$scientific_name = $this->input->post("scientific_name");
 		$quantity = $this->input->post("quantity");
 		$food = $this->input->post("food");
 		$native_area = $this->input->post("native_area");
 		$building_id = $this->input->post("building_id");
 		$species = $this->input->post("species");
+		$data = array( 'scientific_name' => $scientific_name, 'quantity' => $quantity, 'food' => $food, 'native_area' => $native_area,
+				'building_id' => $building_id, 'species' => $species );
 		
+		//load database
 		$this->load->model("Animal_model");
-		//if ( isset() )
+		$this->Animal_model->updateAnimal( $id, $data );
+		$this->load->view('animal_info', Array(
+				"pageTitle" => "Zoo_animal",
+				"data" => $data ));
 	}
-	
 	
 	
 }
