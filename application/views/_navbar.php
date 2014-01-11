@@ -18,7 +18,7 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="<?=site_url("search/animal_info")?>">動物資訊</a></li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">園區資訊 <b class="caret"></b></a>
+        <a href="" class="dropdown-toggle" data-toggle="dropdown">園區資訊 <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="<?=site_url("display/building")?>">展館位置</a></li>
           <li><a href="<?=site_url("display/building")?>">商店位置</a></li>

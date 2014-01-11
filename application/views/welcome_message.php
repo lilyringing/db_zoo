@@ -9,8 +9,13 @@
 
 <body>
 
-<div id="container">
-	
+<div id="container">	
+</div>
+
+<div class="row">
+	<div class="col-xs-6 col-md-3">
+		
+	</div>
 </div>
 
 <script src="https://code.jquery.com/jquery.js"></script>
