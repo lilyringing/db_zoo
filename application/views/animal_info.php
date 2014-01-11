@@ -1,5 +1,4 @@
-<?php include ("_header.php"); 
-	  include ("_navbar.php");?>
+<?php include ("_header.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +22,8 @@
 	<table>
 		<?php foreach ($data['id'] as $element):?>
 		<tr>
-			<td><?php echo $element->Nickname;?></td>
+			<td><a href="<?=site_url("search/content")?>?ID=<?php echo $element->Animal_id?>">
+			<?php echo $element->Nickname?></a></td>
 			<td><?php echo $element->Scientific_name;?></td>
 			<td><?php echo $element->Food;?></td>
 		</tr>
