@@ -51,4 +51,14 @@ class Animal_model extends CI_Model {
 			}
 		}
 	}
+	
+	//input id and data
+	//id is the id of the animal
+	//data is the array of the changed data  
+	public function updateAnimal( $id, $data )
+	{
+		$where = "Animal_id = $id";
+		$str = $this->db->update_string("animal", $data, $where);
+	}
+	
 }

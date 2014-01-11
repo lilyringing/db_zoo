@@ -27,4 +27,22 @@ class Search extends CI_Controller {
 				"pageTitle" => "Zoo_animal",
 				"data" => $data ));
 	}
+	
+	public function editAnimal()
+	{
+		$this->load->helper('url');
+		//load data from user
+		$scientific_name = $this->input->post("scientific_name");
+		$quantity = $this->input->post("quantity");
+		$food = $this->input->post("food");
+		$native_area = $this->input->post("native_area");
+		$building_id = $this->input->post("building_id");
+		$species = $this->input->post("species");
+		
+		$this->load->model("Animal_model");
+		//if ( isset() )
+	}
+	
+	
+	
 }
