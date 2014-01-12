@@ -8,17 +8,14 @@
 </head>
 
 <body>
-
-<div id="container">	
-</div>
-
-<div class="row">
-	<div class="col-xs-6 col-md-3">
-		
+	<div class="container">
+		<div class="hero-unit">
+  			<h1>Welcome to the Taipei City Zoo!</h1>
+  			<p>You can get any related information on this site</p>
+		</div>
 	</div>
-</div>
 
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
