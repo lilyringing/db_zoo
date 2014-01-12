@@ -1,4 +1,5 @@
-<?php include ("_header.php"); ?>
+<?php include ("_header.php"); 
+	  include ("_navbar.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,21 +32,36 @@
 		
 				</form>
 			</div>
+		
+			<div class="row-fluid">
+				<div class="span2">
+				Result
+				</div>
+				<div class="span10">
+					<table class="table">
+						<tr>
+							<td>動物名稱</td>
+							<td>學名</td>
+							<td>食物</td>
+						</tr>
+					</table>
+					
+					<?php if( isset($data) ){?>
+					<table class="table table-striped">
+						<?php foreach ($data['id'] as $element):?>
+						<tr>
+							<td><a href="<?=site_url("search/content")?>?ID=<?php echo $element->Animal_id?>">
+								<?php echo $element->Nickname?></a></td>
+							<td><?php echo $element->Scientific_name;?></td>
+							<td><?php echo $element->Food;?></td>
+						</tr>
+						<?php endforeach; ?>			
+					</table>
+					<?php }?>		
+				</div>
+			</div>
 		</div>
 	</div>
-	
-	<?php if( isset($data) ){?>
-	<table>
-		<?php foreach ($data['id'] as $element):?>
-		<tr>
-			<td><a href="<?=site_url("search/content")?>?ID=<?php echo $element->Animal_id?>">
-			<?php echo $element->Nickname?></a></td>
-			<td><?php echo $element->Scientific_name;?></td>
-			<td><?php echo $element->Food;?></td>
-		</tr>
-		<?php endforeach; ?>
-	</table>
-	<?php }?>
 	
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

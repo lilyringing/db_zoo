@@ -8,10 +8,16 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="hero-unit">
-  			<h1>Welcome to the Taipei City Zoo!</h1>
-  			<p>You can get any related information on this site</p>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span5">
+			</div>
+			<div class="span12">
+			<div class="hero-unit">
+  				<h1>Welcome to the Taipei City Zoo!</h1>
+  				<p>You can get any related information on this site</p>
+			</div>
+			</div>
 		</div>
 	</div>
 
