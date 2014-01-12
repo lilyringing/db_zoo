@@ -74,5 +74,18 @@ class Search extends CI_Controller {
 				"data" => $data ));
 	}
 	
-	
+	public function content(){
+		$_GET["ID"];
+		$this->load->helper('url');
+		$this->load->view('content', Array(
+				"pageTitle" => "Zoo_animal_content"));
+				
+		$this->load->model("Content_model");
+		
+		$data['id'] = $this->Content_model->getContent($_GET["ID"]);
+		
+		$this->load->view('content', Array(
+				"pageTitle" => "Zoo_animal_content",
+				"data" => $data ));
+	}
 }
