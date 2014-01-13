@@ -119,6 +119,31 @@ class Search extends CI_Controller {
 		$this->load->view("edit", $data);
 	}
 	
+	//the controller of inserting
+	//redirect to edit_animal page after inserting
+	public function inserting_animal()
+	{
+		$this->load->helper('url');
+		$scientific_name = $this->input->post("insert_scientific_name");
+		$quantity = $this->input->post("insert_quantity");
+		$food = $this->input->post("insert_food");
+		$native_area = $this->input->post("insert_native_area");
+		$building_id = $this->input->post("insert_building_id");
+		$species = $this->input->post("insert_species");
+		$data['animal'] = array( 'Scientific_name' => $scientific_name, 'Quantity' => $quantity, 'Food' => $food, 'Native_area' => $native_area,
+				'Building_id' => $building_id, 'Species' => $species );
+		$nickname =$this->input->post("insert_nickname");
+		$data['animal_name'] = array( 'Nickname' => $nickname );
+			
+		//load database
+		$this->load->model("Animal_model");
+		$id = $this->Animal_model->insertAnimal( $data );
+	
+		$data['id'] = $this->Animal_model->getAnimalById( $id->Animal_id );
+		$data["pageTitle"] = "Zoo_edit";
+		$this->load->view("edit", $data);
+	}
+	
 	public function content(){
 		$_GET["ID"];
 		$this->load->helper('url');

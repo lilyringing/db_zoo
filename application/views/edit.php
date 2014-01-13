@@ -18,8 +18,7 @@
 	</form>
 	</div>
 	
-	<?php if( isset($id) ){?>
-	<form action = "<?=site_url("search/editing_animal")?>?ID=<?php echo $id[0]->Animal_id ?> " method = "post">
+	<form method = "post">
 	<table border="1">
 		<tr>
 			<td>id</td>
@@ -30,9 +29,9 @@
 			<td>Building_id</td>
 			<td>Species</td>
 			<td>Nickname</td>
-			<td>Edit</td>
-			<td>Delete</td>
+			<td colspan="2">Control</td>
 		</tr>
+		<?php if( isset($id) && $id>0 ){?>
 		<?php foreach ($id as $element):?>
 		<tr>
 			<td><?php echo $element->Animal_id?></td>
@@ -43,14 +42,26 @@
 			<td><input type = "text" value = "<?php echo $element->Building_id?>" name = "building_id"/></td>
 			<td><input type = "text" value = "<?php echo $element->Species?>" name = "species"/></td>
 			<td><input type = "text" value = "<?php echo $element->Nickname?>" name = "nickname"/></td>
-			<td><button type="submit">Edit</button></td>
+			<td><button type="submit" formaction="<?=site_url("search/editing_animal")?>?ID=<?php echo $element->Animal_id ?>" >Edit</button></td>
 			<td><button type="submit" formaction="<?=site_url("search/deleting_animal")?>?ID=<?php echo $element->Animal_id ?>" >Delete</button></td>
 		</tr>
-		<?php endforeach; ?>	
+		<?php endforeach; ?>
+		<?php }?>	
+		<tr>
+			<td>Insert new animal</td>
+			<td><input type = "text" name="insert_scientific_name"/></td>
+			<td><input type = "text" name="insert_quantity"/></td>
+			<td><input type = "text" name="insert_food"/></td>
+			<td><input type = "text" name="insert_native_area"/></td>
+			<td><input type = "text" name="insert_building_id"/></td>
+			<td><input type = "text" name="insert_species"/></td>
+			<td><input type = "text" name="insert_nickname"/></td>
+			<td colspan="2"><button type="submit" formaction="<?=site_url("search/inserting_animal")?>">Insert</button></td>
+		</tr>
 	</table>
 	</form>
 	
-	<?php }?>	
+	
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

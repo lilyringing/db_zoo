@@ -73,7 +73,8 @@ class Animal_model extends CI_Model {
 	
 	//input id and data
 	//id is the id of the animal
-	//data is the array of the changed data
+	//data['animal'] is the array of the changed data in animal table
+	//data['animal_name'] is the array of the changed data in animal_name table
 	//update the animal and animal_name table  
 	public function updateAnimal( $id, $data )
 	{
@@ -94,6 +95,26 @@ class Animal_model extends CI_Model {
 		$this->db->delete("animal_name");
 		$this->db->where("Animal_id", $id);
 		$this->db->delete("animal");
+	}
+	
+	//input data
+	//data['animal'] is the array of the inserted data in animal table
+	//data['animal_name'] is the array of the inserted data in animal_name table
+	//insert entry in the animal and animal_name table
+	public function insertAnimal( $data )
+	{
+		$this->db->insert("animal", $data['animal']);
+		
+		//get inserting id
+		$this->db->select("Animal_id");
+		$this->db->where( $data['animal']);
+		$this->db->from("animal");
+		$query = $this->db->get();
+		if($query->num_rows() > 0){
+			$data['animal_name']["Animal_id"] = $query->row()->Animal_id;
+			$this->db->insert("animal_name", $data['animal_name']);
+			return $query->row();
+		}
 	}
 	
 }
