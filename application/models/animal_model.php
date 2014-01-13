@@ -58,7 +58,7 @@ class Animal_model extends CI_Model {
 		$this->db->join('animal_name', 'animal_name.Animal_id = animal.Animal_id');
 		$this->db->where('animal.Animal_id', $id);
 		$query = $this->db->get();
-				
+		
 		if($query->num_rows() > 0){
 			return $query->result();
 		}
@@ -72,8 +72,12 @@ class Animal_model extends CI_Model {
 	//data is the array of the changed data  
 	public function updateAnimal( $id, $data )
 	{
-		$where = "Animal_id = $id";
-		$str = $this->db->update_string("animal", $data, $where);
+		//echo "data[Scientific_name] = ".$data["Scientific_name"];
+		$where = $id;
+		$this->db->where("Animal_id", $where);
+		$this->db->update("animal", $data['animal']);
+		$this->db->where("Animal_id", $where);
+		$this->db->update("animal_name", $data['animal_name']);
 	}
 	
 }

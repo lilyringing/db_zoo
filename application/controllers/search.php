@@ -38,7 +38,6 @@ class Search extends CI_Controller {
 		$this->load->model("Animal_model");
 		
 		if(isset($id)){
-			echo "ya";
 			$data['id'] = $this->Animal_model->getAnimalById( $id );
 		}
 		$data["pageTitle"] = "Zoo_edit";
@@ -46,15 +45,13 @@ class Search extends CI_Controller {
 		
 	}
 	
-	public function editing_animal( $id )
+	public function editing_animal(  )
 	{
 		$this->load->helper('url');
 		
 		//need to do login check
 		//not yet done
-		
-		echo "hi";
-		
+
 		//load data from user
 		/*$scientific_name = $this->input->post("scientific_name");
 		if ( isset( $scientific_name ) )
@@ -75,21 +72,30 @@ class Search extends CI_Controller {
 			$native_area = $this->input->post("native_area");
 		}
 		*/
-		$scientific_name = $this->input->post("scientific_name");
-		$quantity = $this->input->post("quantity");
-		$food = $this->input->post("food");
-		$native_area = $this->input->post("native_area");
-		$building_id = $this->input->post("building_id");
-		$species = $this->input->post("species");
-		$data = array( 'scientific_name' => $scientific_name, 'quantity' => $quantity, 'food' => $food, 'native_area' => $native_area,
-				'building_id' => $building_id, 'species' => $species );
+		$id = $this->input->get("ID");
+
+		if ( isset($id) )
+		{
+			
+			$scientific_name = $this->input->post("scientific_name");
+			$quantity = $this->input->post("quantity");
+			$food = $this->input->post("food");
+			$native_area = $this->input->post("native_area");
+			$building_id = $this->input->post("building_id");
+			$species = $this->input->post("species");
+			$data['animal'] = array( 'Scientific_name' => $scientific_name, 'Quantity' => $quantity, 'Food' => $food, 'Native_area' => $native_area,
+					'Building_id' => $building_id, 'Species' => $species );
+			$nickname =$this->input->post("nickname"); 
+			$data['animal_name'] = array( 'Nickname' => $nickname );
+		}
+		
 		
 		//load database
 		$this->load->model("Animal_model");
 		$this->Animal_model->updateAnimal( $id, $data );
-		/*$this->load->view('animal_info', Array(
-				"pageTitle" => "Zoo_animal",
-				"data" => $data ));*/
+		$data["pageTitle"] = "Zoo_edit";
+		$data['id'] = $this->Animal_model->getAnimalById( $id );
+		$this->load->view("edit", $data);
 	}
 	
 	public function content(){
