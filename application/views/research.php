@@ -36,6 +36,5 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url('js/bootstrap-dropdown.js');?>"></script>
     <script src="http://silviomoreto.github.io/bootstrap-select/javascripts/bootstrap-select.js"></script> 
 </body>
