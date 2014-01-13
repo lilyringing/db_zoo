@@ -51,6 +51,21 @@ class Animal_model extends CI_Model {
 			}
 		}
 	}
+	public function getAnimalById($id){
+		
+		$this->db->select("*");
+		$this->db->from("animal");
+		$this->db->join('animal_name', 'animal_name.Animal_id = animal.Animal_id');
+		$this->db->like('Animal_id', $id);
+		$query = $this->db->get();
+				
+		if($query->num_rows() > 0){
+			return $query->result();
+		}
+		else{
+			return "no result.";
+		}	
+	}
 	
 	//input id and data
 	//id is the id of the animal
