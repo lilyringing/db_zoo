@@ -18,8 +18,8 @@
 			
 			<div class="span10">
 				<form class="form-search" action="<?=site_url("search/search_result")?>" method="post">
-					<input type="text" name="SearchText" />
-  
+					<input type="text" class="form-control" placeholder="請輸入搜尋內容" name="SearchText" >
+  					
 					<select class="selectpicker show-tick" name="SearchType">
 						<option value="Nickname">俗名</option>
 						<option value="Food">食物</option>
