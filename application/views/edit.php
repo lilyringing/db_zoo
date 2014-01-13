@@ -4,16 +4,17 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-
-	<style type="text/css">
-	</style>
+	<link href="<?php echo base_url('css/bootstrap.min.css');?>" rel="stylesheet" media="screen">
+	<link href="<?php echo base_url('css/bootstrap-responsive.css');?>" rel="stylesheet" media="screen">
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://silviomoreto.github.io/bootstrap-select/stylesheets/bootstrap-select.css">
 </head>
 
 <body>
 	<div>
 	<form action = "<?=site_url("search/edit_animal")?>" method = "post" >
 		<input type="text" name = "id"/>
-		<button type="submit">¶Ç°e</button>
+		<button type="submit">ï¿½Ç°e</button>
 	</form>
 	</div>
 	
@@ -22,14 +23,14 @@
 	<table border="1">
 		<tr>
 			<td>id</td>
-			<td>¾Ç¦W</td>
-			<td>¼Æ¶q</td>
-			<td>­¹ª«</td>
-			<td>¤À§G</td>
-			<td>³õÀ]</td>
-			<td>ºØ</td>
-			<td>¼ÊºÙ</td>
-			<td>½s¿è</td>
+			<td>å­¸å</td>
+			<td>æ•¸é‡</td>
+			<td>é£Ÿç‰©</td>
+			<td>åˆ†ä½ˆ</td>
+			<td>ï¿½ï¿½ï¿½]</td>
+			<td>ï¿½ï¿½</td>
+			<td>ï¿½Êºï¿½</td>
+			<td>ï¿½sï¿½ï¿½</td>
 		</tr>
 		<?php foreach ($id as $element):?>
 		<tr>
@@ -49,6 +50,9 @@
 	
 	<?php }?>	
 
-
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="http://silviomoreto.github.io/bootstrap-select/javascripts/bootstrap-select.js"></script>
 
 </body>

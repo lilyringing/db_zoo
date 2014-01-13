@@ -11,19 +11,23 @@
 </head>
 
 <body>
+	<div class="hero-unit">
+		<h1 class="text-center">歡迎蒞臨</h1>
+	</div>
+	
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<div class="span2">
-			</div>
-			<div class="span7">
-				<div class="hero-unit">
-					<h1 class="text-center">歡迎蒞臨</h1>
-					<p></p>
+				
+				<div class="span3">
+				</div>
+				
+				<div class="span5">
 					<img src="<?php echo base_url('image/TaipeiCityZoo.jpg');?>" alt="Zoo" class="img-circle">
 				</div>
-			</div>
-			<div class="span2">
-			</div>
+			
+				<div class="span3">
+				</div>
+			
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery.js"></script>
