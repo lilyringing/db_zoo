@@ -27,7 +27,24 @@ class Search extends CI_Controller {
 				"pageTitle" => "Zoo_animal",
 				"data" => $data ));
 	}
-	public function edit_animal()
+	
+	public function edit_animal( )
+	{
+		$this->load->helper('url');
+		//need to do login check
+		//not yet done
+		$id = $this->input->post("animal_id");
+		
+		$this->load->model("Animal_model");
+		$data = $this->Animal_model->getAnimalById( $id );
+		
+		$this->load->view("edit", Array(
+				"pageTitle" => "Zoo_animal",
+				"data" => $data ));
+		
+	}
+	
+	public function editing_animal( $id )
 	{
 		$this->load->helper('url');
 		
@@ -56,7 +73,6 @@ class Search extends CI_Controller {
 			$native_area = $this->input->post("native_area");
 		}
 		*/
-		$id = $this->input->post("id");
 		$scientific_name = $this->input->post("scientific_name");
 		$quantity = $this->input->post("quantity");
 		$food = $this->input->post("food");
@@ -69,9 +85,9 @@ class Search extends CI_Controller {
 		//load database
 		$this->load->model("Animal_model");
 		$this->Animal_model->updateAnimal( $id, $data );
-		$this->load->view('animal_info', Array(
+		/*$this->load->view('animal_info', Array(
 				"pageTitle" => "Zoo_animal",
-				"data" => $data ));
+				"data" => $data ));*/
 	}
 	
 	public function content(){
