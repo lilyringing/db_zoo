@@ -14,7 +14,7 @@
 	<div>
 	<form action = "<?=site_url("search/edit_animal")?>" method = "post" >
 		<input type="text" name = "id"/>
-		<button type="submit">�ǰe</button>
+		<button type="submit">Submit</button>
 	</form>
 	</div>
 	
@@ -23,14 +23,15 @@
 	<table border="1">
 		<tr>
 			<td>id</td>
-			<td>學名</td>
-			<td>數量</td>
-			<td>食物</td>
-			<td>分佈</td>
-			<td>���]</td>
-			<td>��</td>
-			<td>�ʺ�</td>
-			<td>�s��</td>
+			<td>Scientific_name</td>
+			<td>Quantity</td>
+			<td>Food</td>
+			<td>Native_area</td>
+			<td>Building_id</td>
+			<td>Species</td>
+			<td>Nickname</td>
+			<td>Edit</td>
+			<td>Delete</td>
 		</tr>
 		<?php foreach ($id as $element):?>
 		<tr>
@@ -43,6 +44,7 @@
 			<td><input type = "text" value = "<?php echo $element->Species?>" name = "species"/></td>
 			<td><input type = "text" value = "<?php echo $element->Nickname?>" name = "nickname"/></td>
 			<td><button type="submit">Edit</button></td>
+			<td><button type="submit" formaction="<?=site_url("search/deleting_animal")?>?ID=<?php echo $element->Animal_id ?>" >Delete</button></td>
 		</tr>
 		<?php endforeach; ?>	
 	</table>

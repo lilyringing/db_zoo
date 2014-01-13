@@ -51,6 +51,10 @@ class Animal_model extends CI_Model {
 			}
 		}
 	}
+	
+	//input id
+	//id is the id of the animal
+	//get the animal entry with the given id
 	public function getAnimalById($id){
 		
 		$this->db->select("*");
@@ -69,7 +73,8 @@ class Animal_model extends CI_Model {
 	
 	//input id and data
 	//id is the id of the animal
-	//data is the array of the changed data  
+	//data is the array of the changed data
+	//update the animal and animal_name table  
 	public function updateAnimal( $id, $data )
 	{
 		//echo "data[Scientific_name] = ".$data["Scientific_name"];
@@ -78,6 +83,17 @@ class Animal_model extends CI_Model {
 		$this->db->update("animal", $data['animal']);
 		$this->db->where("Animal_id", $where);
 		$this->db->update("animal_name", $data['animal_name']);
+	}
+	
+	//input id
+	//id is the id of the animal
+	//delete the animal entry in table animal and animal_name table with the given id
+	public function deleteAnimal( $id )
+	{
+		$this->db->where("Animal_id", $id);
+		$this->db->delete("animal_name");
+		$this->db->where("Animal_id", $id);
+		$this->db->delete("animal");
 	}
 	
 }

@@ -28,6 +28,8 @@ class Search extends CI_Controller {
 				"data" => $data ));
 	}
 	
+	//the controller of edit page
+	//may be replaced in the future
 	public function edit_animal( )
 	{
 		$this->load->helper('url');
@@ -45,6 +47,8 @@ class Search extends CI_Controller {
 		
 	}
 	
+	//the controller of editting
+	//redirect to edit_animal page after editting
 	public function editing_animal(  )
 	{
 		$this->load->helper('url');
@@ -87,14 +91,31 @@ class Search extends CI_Controller {
 					'Building_id' => $building_id, 'Species' => $species );
 			$nickname =$this->input->post("nickname"); 
 			$data['animal_name'] = array( 'Nickname' => $nickname );
+			
+			//load database
+			$this->load->model("Animal_model");
+			$this->Animal_model->updateAnimal( $id, $data );
 		}
 		
-		
-		//load database
-		$this->load->model("Animal_model");
-		$this->Animal_model->updateAnimal( $id, $data );
 		$data["pageTitle"] = "Zoo_edit";
 		$data['id'] = $this->Animal_model->getAnimalById( $id );
+		$this->load->view("edit", $data);
+	}
+	
+	//the controller of deleting
+	//redirect to edit_animal page after deleting
+	public function deleting_animal()
+	{
+		$this->load->helper('url');
+		$id = $this->input->get("ID");
+		if ( isset($id) )
+		{
+			//load database
+			$this->load->model("Animal_model");
+			$this->Animal_model->deleteAnimal( $id );
+		}
+		
+		$data["pageTitle"] = "Zoo_edit";
 		$this->load->view("edit", $data);
 	}
 	
