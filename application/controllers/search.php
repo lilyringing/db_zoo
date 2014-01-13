@@ -33,14 +33,16 @@ class Search extends CI_Controller {
 		$this->load->helper('url');
 		//need to do login check
 		//not yet done
-		$id = $this->input->post("animal_id");
-		
+		$id = $this->input->post("id");
+
 		$this->load->model("Animal_model");
-		$data = $this->Animal_model->getAnimalById( $id );
 		
-		$this->load->view("edit", Array(
-				"pageTitle" => "Zoo_animal",
-				"data" => $data ));
+		if(isset($id)){
+			echo "ya";
+			$data['id'] = $this->Animal_model->getAnimalById( $id );
+		}
+		$data["pageTitle"] = "Zoo_edit";
+		$this->load->view("edit", $data);
 		
 	}
 	

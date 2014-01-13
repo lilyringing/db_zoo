@@ -56,7 +56,7 @@ class Animal_model extends CI_Model {
 		$this->db->select("*");
 		$this->db->from("animal");
 		$this->db->join('animal_name', 'animal_name.Animal_id = animal.Animal_id');
-		$this->db->like('Animal_id', $id);
+		$this->db->where('animal.Animal_id', $id);
 		$query = $this->db->get();
 				
 		if($query->num_rows() > 0){
