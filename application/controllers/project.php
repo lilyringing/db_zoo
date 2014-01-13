@@ -11,11 +11,11 @@ class Project extends CI_Controller {
 		$this->load->view('research', Array("pageTitle" => "Zoo_research","data" => $data ));
 	}
 	
-	public function act(){
+	public function activity(){
 		$this->load->helper('url');
 		
 		$this->load->model("Research_model");
-		$data['id'] = $this->Research_model->getActivity();
+		$data['act'] = $this->Research_model->getActivity();
 		$this->load->view('activity', Array("pageTitle" => "Zoo_activity","data" => $data ));
 	}
 }

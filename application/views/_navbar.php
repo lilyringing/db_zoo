@@ -18,6 +18,7 @@
 					</li>
 					
 					<li><a href="<?=site_url("project/research")?>">研究計畫</a></li>
+					<li><a href="<?=site_url("project/activity")?>">活動</a></li>
 					
             	</ul>
             	</div>
