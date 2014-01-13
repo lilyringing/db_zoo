@@ -5,23 +5,24 @@
 <head>
 	<meta charset="utf-8">
 	<link href="<?php echo base_url('css/bootstrap.min.css');?>" rel="stylesheet" media="screen">
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://silviomoreto.github.io/bootstrap-select/stylesheets/bootstrap-select.css">
 </head>
 
 <body>
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<div class="span5">
+			<div class="span2">
 			</div>
-			<div class="span12">
-			<div class="hero-unit">
-  				<h1>Welcome to the Taipei City Zoo!</h1>
-  				<p>You can get any related information on this site</p>
-			</div>
+			<div class="span7">
+			<img src="<?php echo base_url('image/TaipeiCityZoo.jpg');?>" alt="Zoo" class="img-circle">
+			
 			</div>
 		</div>
 	</div>
-
 	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="http://silviomoreto.github.io/bootstrap-select/javascripts/bootstrap-select.js"></script>
 </body>
 </html>
