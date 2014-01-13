@@ -5,7 +5,6 @@ class Project extends CI_Controller {
 	
 	public function research(){
 		$this->load->helper('url');
-		$this->load->view('research', Array("pageTitle" => "Research"));
 		
 		$this->load->model("Research_model");
 		$data['id'] = $this->Research_model->getResearch();
@@ -14,7 +13,6 @@ class Project extends CI_Controller {
 	
 	public function act(){
 		$this->load->helper('url');
-		$this->load->view('activity', Array("pageTitle" => "Activity"));
 		
 		$this->load->model("Research_model");
 		$data['id'] = $this->Research_model->getActivity();
