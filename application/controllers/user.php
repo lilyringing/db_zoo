@@ -52,7 +52,7 @@ class User extends CI_Controller {
 	
 	public function logout(){
 		$this->load->helper('url');
-		session_destroy();
+		$this->session->unset_userdata('user');
 		redirect(site_url("/")); 	// turn to homepage
 	}//end logout
 }  

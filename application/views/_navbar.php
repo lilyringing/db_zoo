@@ -1,4 +1,4 @@
-
+<?php $session_id = $this->session->userdata('user');?>
 	<div class="bs-example">
     	<div class="navbar navbar-static">
         	<div class="navbar-inner">
@@ -22,18 +22,32 @@
 					<li><a href="<?=site_url("project/research")?>">研究計畫</a></li>
 					<li><a href="<?=site_url("project/activity")?>">活動</a></li>
 					
+					<?php if($session_id){?>
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle" data-toggle="dropdown" class="dropdown-toggle">
+        				後台管理 <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+        					<li><a href="<?=site_url("search/animal_info")?>">修改動物資訊</a></li>
+        					<li><a href="<?=site_url("/")?>">新增動物</a></li>	
+        				</ul>
+					</li>
+					<?php }?>
+					
             	</ul>
             	</div>
-            		<?php $session_id = $this->session->userdata('user');
-            			  if($session_id){?>
-            			  	<ul class="nav pull-right">
-            			  		<li><a href="">Hi! <?php echo $session_id->Account;?></a></li>
-            			  	</ul>
-            			  <?php }else{ ?>
-            			  <ul class="nav pull-right">
-                			<li><a href="<?=site_url("user/login")?>">登入</a></li>
-            			</ul>
-            		<?php }?>
+            		
+            	<?php if($session_id){?>
+            	<ul class="nav pull-right">
+            		<li><a href="<?=site_url("user/logout")?>">登出</a></li>
+            		<li><a href="">Hi! <?php echo $session_id->Account;?></a></li>
+            			  		
+            	</ul>
+            	
+            	<?php }else{ ?>
+            	<ul class="nav pull-right">
+                	<li><a href="<?=site_url("user/login")?>">登入</a></li>
+            	</ul>
+            	<?php }?>
         	</div>
     	</div>
 	</div>
