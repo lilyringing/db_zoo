@@ -23,9 +23,10 @@ class Search extends CI_Controller {
 		$this->load->model("Animal_model");
 		if(isset($search_text)){
 			$data['id'] = $this->Animal_model->getAnimal($search_text, $search_type);
+			
 		}
 		else{
-			$error_message="error";
+			$error_message="";
 		}
 		
 		$this->load->view('animal_info', Array(
@@ -136,6 +137,7 @@ class Search extends CI_Controller {
 		$quantity = $this->input->post("insert_quantity");
 		$food = $this->input->post("insert_food");
 		$native_area = $this->input->post("insert_native_area");
+		$this->input->post("insert_description");
 		$building_id = $this->input->post("insert_building_id");
 		$species = $this->input->post("insert_species");
 		$data['animal'] = array( 'Scientific_name' => $scientific_name, 'Quantity' => $quantity, 'Food' => $food, 'Native_area' => $native_area,
@@ -146,10 +148,9 @@ class Search extends CI_Controller {
 		//load database
 		$this->load->model("Animal_model");
 		$id = $this->Animal_model->insertAnimal( $data );
-	
-		$data['id'] = $this->Animal_model->getAnimalById( $id->Animal_id );
-		$data["pageTitle"] = "Zoo_edit";
-		$this->load->view("edit", $data);
+
+		$url = "/search/content?ID=".$id->Animal_id;
+		redirect(site_url($url));
 	}
 	
 	public function content(){
@@ -173,5 +174,16 @@ class Search extends CI_Controller {
 					"data" => $data ));			
 		}
 		
+	}
+	
+	public function insert_animal()
+	{
+		$this->load->helper('url');
+		$this->load->model("Animal_model");
+		$data["Species"] = $this->Animal_model->getSpecies(  );
+		$data["Building"] = $this->Animal_model->getBuilding(  );
+		$this->load->view('insert', Array(
+				"pageTitle" => "Zoo_animal_insert",
+				"data" => $data ));
 	}
 }

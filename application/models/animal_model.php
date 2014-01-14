@@ -140,4 +140,24 @@ class Animal_model extends CI_Model {
 		$this->db->where("Building_id", $bid);
 		$this->db->update("building", array("Description" => $description) );
 	}
+	
+	public function getSpecies(  )
+	{
+		$this->db->select("Species");
+		$this->db->from("genius_species");
+		$query = $this->db->get();
+		if($query->num_rows() > 0){
+			return $query->result();
+		}
+	} 
+	
+	public function getBuilding(  )
+	{
+		$this->db->select("*");
+		$this->db->from("building");
+		$query = $this->db->get();
+		if($query->num_rows() > 0){
+			return $query->result();
+		}
+	}
 }
