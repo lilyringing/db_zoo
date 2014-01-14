@@ -50,7 +50,6 @@
 									<tr>
 										<td>動物名稱</td>
 										<td>學名</td>
-										<td></td>
 									</tr>
 								<?php foreach ($data['id'] as $element):?>
 									<tr>
@@ -59,8 +58,10 @@
 										<td><?php echo $element->Scientific_name;?></td>
 										
 										<?php if($session_id){?>
-											<td><a href="<?=site_url("search/deleting_animal")?>?ID=<?php echo $element->Animal_id?>">
-											刪除</a></td>											
+										<td>	
+											<button onclick="delete_win()" class="btn btn-danger">
+												<i class="icon-remove icon-white"></i>刪除</button>
+										</td>												
 										<?php }?>
 									</tr>
 								<?php endforeach; ?>			
@@ -86,5 +87,11 @@
           $(document).ready(function(e) {
               $('.selectpicker').selectpicker();
           });
+    </script>
+    <script type="text/javascript">
+    	function delete_win(){
+        	alert("您確定要刪除此動物嗎?");
+        	window.location="<?=site_url("search/deleting_animal")?>?ID=<?php echo $element->Animal_id?>";
+    	}
     </script>
 </body>
