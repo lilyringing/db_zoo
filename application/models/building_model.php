@@ -14,13 +14,6 @@ class Building_model extends CI_Model {
 			$this->db->join('zookeeper', 'zookeeper.Zookeeper_id = building.Curator_id');
 			$this->db->like('Description', $text);
 			$query = $this->db->get();
-			
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else if( $type == "Curator" ){
 			$this->db->select("*");
@@ -28,13 +21,6 @@ class Building_model extends CI_Model {
 			$this->db->join('zookeeper', 'zookeeper.Zookeeper_id = building.Curator_id');
 			$this->db->like('zookeeper_name', $text);
 			$query = $this->db->get();
-			
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else if( $type == "Shop_name" ){
 			$this->db->select("*");
@@ -42,13 +28,6 @@ class Building_model extends CI_Model {
 			$this->db->join('building', 'building.Building_id = shop.Building_id');
 			$this->db->like('Shop_name', $text);
 			$query = $this->db->get();
-			
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else if($type == "Location" ){
 			$this->db->select("*");
@@ -56,13 +35,6 @@ class Building_model extends CI_Model {
 			$this->db->join('building', 'building.Building_id = shop.Building_id');
 			$this->db->like('Location', $text);
 			$query = $this->db->get();
-			
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else if($type == "Product" ){
 			$this->db->select("*");
@@ -70,13 +42,13 @@ class Building_model extends CI_Model {
 			$this->db->join('building', 'building.Building_id = shop.Building_id');
 			$this->db->like('Product', $text);
 			$query = $this->db->get();
-			
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
+		}
+		
+		if($query->num_rows() > 0){
+			return $query->result();
+		}
+		else{
+			return -1;
 		}
 	}
 	
@@ -91,7 +63,7 @@ class Building_model extends CI_Model {
 			return $query->result();
 		}
 		else{
-			return "no result.";
+			return -1;
 		}
 	}
 	
@@ -106,7 +78,7 @@ class Building_model extends CI_Model {
 			return $query->result();
 		}
 		else{
-			return "no result.";
+			return -1;
 		}
 	}
 }

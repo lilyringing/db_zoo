@@ -25,7 +25,7 @@ class Content_model extends CI_Model {
 				return $query->result();
 			}
 			else{
-				return "no result.";
+				return -1;
 			}
 		
 	}

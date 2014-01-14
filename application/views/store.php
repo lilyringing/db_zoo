@@ -42,24 +42,32 @@
 			</div>
 			
 			<div class="span10">
-			<?php if( isset($data['id']) ){?>
-				<table class="table table-striped">
-					<tr>
-						<td><strong>名稱</strong></td>
-						<td><strong>臨近展館</strong></td>
-						<td><strong>地點</strong></td>
-						<td><strong>販售商品</strong></td>
-					</tr>
-					<?php foreach ($data['id'] as $element):?>
-					<tr>
-						<td><?php echo $element->Shop_name;?></td>
-						<td><?php echo $element->Description;?></td>
-						<td><?php echo $element->Location;?></td>
-						<td><?php echo $element->Product;?></td>
-					</tr>
-					<?php endforeach; ?>
-				</table>
-			<?php }?>
+			<?php if( isset($data['id']) ){
+					if($data['id'] != -1){?>
+						<table class="table table-striped">
+							<tr>
+								<td><strong>名稱</strong></td>
+								<td><strong>臨近展館</strong></td>
+								<td><strong>地點</strong></td>
+								<td><strong>販售商品</strong></td>
+							</tr>
+							<?php foreach ($data['id'] as $element):?>
+							<tr>
+								<td><?php echo $element->Shop_name;?></td>
+								<td><?php echo $element->Description;?></td>
+								<td><?php echo $element->Location;?></td>
+								<td><?php echo $element->Product;?></td>
+							</tr>
+							<?php endforeach; ?>
+						</table>
+						<?php }else{?>
+								<table class="table table-striped">
+									<tr>
+										<td><strong>抱歉，您搜尋的內容不存在，請確認是否選對搜尋類別!</strong></td>
+									</tr>
+								</table>
+				<?php }
+				}?>			
 			</div>
 		</div>
 		

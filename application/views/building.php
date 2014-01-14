@@ -41,22 +41,30 @@
 			</div>
 			
 			<div class="span10">
-			<?php if( isset($data['id']) ){?>
-				<table class="table table-striped">
-					<tr>
-						<td><strong>編號</strong></td>
-						<td><strong>館名</strong></td>
-						<td><strong>館長</strong></td>
-					</tr>
-					<?php foreach ($data['id'] as $element):?>
-					<tr>
-						<td><?php echo $element->Building_id;?></td>
-						<td><?php echo $element->Description;?></td>
-						<td><?php echo $element->Zookeeper_name;?></td>
-					</tr>
-					<?php endforeach; ?>
-				</table>
-			<?php }?>
+			<?php if( isset($data['id']) ){
+					if($data['id'] != -1){?>
+						<table class="table table-striped">
+							<tr>
+								<td><strong>編號</strong></td>
+								<td><strong>館名</strong></td>
+								<td><strong>館長</strong></td>
+							</tr>
+							<?php foreach ($data['id'] as $element):?>
+							<tr>
+								<td><?php echo $element->Building_id;?></td>
+								<td><?php echo $element->Description;?></td>
+								<td><?php echo $element->Zookeeper_name;?></td>
+							</tr>
+						<?php endforeach; ?>
+					</table>
+					<?php }else{?>
+								<table class="table table-striped">
+									<tr>
+										<td><strong>抱歉，您搜尋的內容不存在，請確認是否選對搜尋類別!</strong></td>
+									</tr>
+								</table>
+				<?php }
+				}?>			
 			</div>
 		</div>
 		
