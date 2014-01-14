@@ -121,11 +121,6 @@ class Search extends CI_Controller {
 		{
 			//load database
 			$this->load->model("Animal_model");
-			// get animal name
-			$tempdata = $this->Animal_model->getAnimalById($id);
-			if( isset($tempdata) && ($tempdata != -1) ){
-				$data['name'] = $tempdata->Nickname;
-			}
 			// delete
 			$this->Animal_model->deleteAnimal( $id );
 		}
