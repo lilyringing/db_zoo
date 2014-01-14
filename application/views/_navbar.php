@@ -27,7 +27,7 @@
             		<?php $session_id = $this->session->userdata('user');
             			  if($session_id){?>
             			  	<ul class="nav pull-right">
-            			  		<li>Hi! <?php echo $session_id->Account;?></li>
+            			  		<li><a href="">Hi! <?php echo $session_id->Account;?></a></li>
             			  	</ul>
             			  <?php }else{ ?>
             			  <ul class="nav pull-right">

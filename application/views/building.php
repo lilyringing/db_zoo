@@ -14,9 +14,6 @@
 		<div class="row-fluid">
 			<div class="span2">
 				<div class="text-center">展館搜尋</div>
-			<!-- <a  href="javascript:search('searching')">展館搜尋</a> 
-			<button type="button" class="btn btn-default btn-lg" onClick="setVisibility('searching', 'inline');">
-			展館搜尋</button>-->
 			</div>
 			
 			<div class="span10">
