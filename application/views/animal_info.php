@@ -50,12 +50,18 @@
 									<tr>
 										<td>動物名稱</td>
 										<td>學名</td>
+										<td></td>
 									</tr>
 								<?php foreach ($data['id'] as $element):?>
 									<tr>
 										<td><a href="<?=site_url("search/content")?>?ID=<?php echo $element->Animal_id?>">
 											<?php echo $element->Nickname?></a></td>
 										<td><?php echo $element->Scientific_name;?></td>
+										
+										<?php if($session_id){?>
+											<td><a href="<?=site_url("search/deleting_animal")?>?ID=<?php echo $element->Animal_id?>">
+											刪除</a></td>											
+										<?php }?>
 									</tr>
 								<?php endforeach; ?>			
 								</table>

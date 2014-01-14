@@ -123,8 +123,8 @@ class Search extends CI_Controller {
 			$this->Animal_model->deleteAnimal( $id );
 		}
 		
-		$data["pageTitle"] = "Zoo_edit";
-		$this->load->view("edit", $data);
+		$data["pageTitle"] = "Zoo_animal";
+		$this->load->view("animal_info", $data);
 	}
 	
 	//the controller of inserting
