@@ -22,7 +22,7 @@ class Search extends CI_Controller {
 		
 		$this->load->model("Animal_model");
 		if(isset($search_text)){
-			$data['id'] = $this->Animal_model->getAnimal($search_text, $search_type);
+			$data['info'] = $this->Animal_model->getAnimal($search_text, $search_type);
 			
 		}
 		else{
@@ -121,6 +121,12 @@ class Search extends CI_Controller {
 		{
 			//load database
 			$this->load->model("Animal_model");
+			// get animal name
+			$tempdata = $this->Animal_model->getAnimalById($id);
+			if( isset($tempdata) && ($tempdata != -1) ){
+				$data['name'] = $tempdata->Nickname;
+			}
+			// delete
 			$this->Animal_model->deleteAnimal( $id );
 		}
 		

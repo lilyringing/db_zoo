@@ -47,16 +47,19 @@
 			<div class="row-fluid">
 				<div class="span2">
 					<div class="text-center">搜尋結果</div>
+					<?php if( isset($data['name']) ){
+						notice();
+					}?>
 				</div>
 				<div class="span10">
-					<?php if( isset($data['id'])){
-							if($data['id'] != -1){?> 
+					<?php if( isset($data['info'])){
+							if($data['info'] != -1){?> 
 								<table class="table table-striped">
 									<tr>
 										<td>動物名稱</td>
 										<td>學名</td>
 									</tr>
-								<?php foreach ($data['id'] as $element):?>
+								<?php foreach ($data['info'] as $element):?>
 									<tr>
 										<td><a href="<?=site_url("search/content")?>?ID=<?php echo $element->Animal_id?>">
 											<?php echo $element->Nickname?></a></td>
@@ -64,7 +67,8 @@
 										
 										<?php if($session_id){?>
 										<td>	
-											<button onclick="delete_win()" class="btn btn-danger">
+											<button class="btn btn-danger"
+													onclick="javascript:location.href='<?=site_url("search/deleting_animal")?>?ID=<?php echo $element->Animal_id?>'">
 												<i class="icon-remove icon-white"></i>刪除</button>
 										</td>												
 										<?php }?>
@@ -95,8 +99,14 @@
     </script>
     <script type="text/javascript">
     	function delete_win(){
-        	alert("您確定要刪除此動物嗎?");
-        	window.location="<?=site_url("search/deleting_animal")?>?ID=<?php echo $element->Animal_id?>";
+    		var d = Dialogs.confirm("您確定要刪除此動物嗎?","是","否");
+    		if( d == true ){
+    			window.location="<?=site_url("search/deleting_animal")?>?ID=<?php echo $element->Animal_id?>";
+    		}
+    	}
+    	function notice(){
+        	var id ="<?php echo $data['name'];?>";
+        	alert(id."已被刪除");
     	}
     </script>
 </body>
