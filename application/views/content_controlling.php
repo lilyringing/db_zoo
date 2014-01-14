@@ -22,27 +22,27 @@
 				<?php foreach ($data['info'] as $element):?>
 					<tr>
 						<td><?php echo "名稱:"?></td>
-						<td><input type = "text" value = "<?php echo $element->Nickname?>" name = "Nickname"/></td>
+						<td><input class="form-control" type = "text" value = "<?php echo $element->Nickname?>" name = "Nickname"/></td>
 					</tr>
 					<tr>
 						<td><?php echo "場館:"?></td>
-						<td><input type = "text" value = "<?php echo $element->Description;?>" name = "Description"/></td>
+						<td><input class="form-control" type = "text" value = "<?php echo $element->Description;?>" name = "Description"/></td>
 					</tr>
 					<tr>
 						<td><?php echo "食性:"?></td>
-						<td><input type = "text" value = "<?php echo $element->Food;?>" name = "Food"/></td>
+						<td><textarea class="form-control" rows="6"  name = "Food"><?php echo $element->Food;?></textarea></td>
 					</tr>
 					<tr>
 						<td><?php echo "原生地:"?></td>
-						<td><input type = "text" value = "<?php echo $element->Native_area;?>" name = "Native_area"/></td>
+						<td><textarea class="form-control" rows="5"  name = "Native_area"><?php echo $element->Native_area;?></textarea></td>
 					</tr>
 					<tr>
 						<td><?php echo "數量:"?></td>
-						<td><input type = "text" value = "<?php echo $element->Quantity;?>" name = "Quantity"/></td>
+						<td><input class="form-control" type = "text" value = "<?php echo $element->Quantity;?>" name = "Quantity"/></td>
 					</tr>
 					<tr>
 						<td><?php echo "學名:"?></td>
-						<td><input type = "text" value = "<?php echo $element->Scientific_name;?>" name = "Scientific_name"/></td>
+						<td><input class="form-control" type = "text" value = "<?php echo $element->Scientific_name;?>" name = "Scientific_name"/></td>
 					</tr>
 					<tr>
 						<td><?php echo "分類:"?></td>
@@ -72,18 +72,16 @@
 						<td></td>
 						<td><?php echo $element->Species;?></td>
 					</tr>
-					<tr>
-						<td></td>
-						<td><button type="submit" formaction="<?=site_url("search/editing_animal")?>?ID=<?php echo $element->Animal_id ?>
-									&BID=<?php echo $element->Building_id?>" >Edit</button></td>
-					</tr>
-
 				<?php endforeach; ?>
 				</table>
 				</form>
 			<?php }?>
 			</div>
 			<div class="span2">
+				<button type="submit" class="btn btn-primary"
+						formaction="<?=site_url("search/editing_animal")?>?ID=<?php echo $element->Animal_id ?>
+									&BID=<?php echo $element->Building_id?>" > 
+						<i class="icon-pencil icon-white"></i>Edit</button>
 			</div>
 		</div>
 	</div>

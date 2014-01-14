@@ -43,13 +43,13 @@ include ("_navbar.php");
 						<tr>
 							<td><?php echo "食性:"?></td>
 							<td>
-								<textarea class="form-control" rows="3" name="insert_food"></textarea>
+								<textarea class="form-control" rows="6" name="insert_food"></textarea>
 							</td>
 						</tr>
 						<tr>
 							<td><?php echo "原生地:"?></td>
 							<td>
-								<textarea class="form-control" rows="2" name="insert_native_area"></textarea>
+								<textarea class="form-control" rows="5" name="insert_native_area"></textarea>
 							</td>
 						</tr>
 						<tr>

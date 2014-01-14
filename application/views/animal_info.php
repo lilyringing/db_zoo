@@ -13,7 +13,12 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span2">
-				<div class="text-center">動物搜尋</div>
+				<?php if($session_id){?>
+					<button type="button" class="btn btn-lg btn-danger" disabled="disabled">
+					欲編輯動物資訊，請先搜尋，並進入動物個別頁面</button>
+				<?php }else{?>
+					<div class="text-center">動物搜尋</div>
+				<?php }?>
 			</div>
 			
 			<div class="span10">
