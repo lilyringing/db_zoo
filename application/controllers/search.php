@@ -86,25 +86,28 @@ class Search extends CI_Controller {
 		if ( isset($id) )
 		{
 			
-			$scientific_name = $this->input->post("scientific_name");
-			$quantity = $this->input->post("quantity");
-			$food = $this->input->post("food");
-			$native_area = $this->input->post("native_area");
-			$building_id = $this->input->post("building_id");
-			$species = $this->input->post("species");
-			$data['animal'] = array( 'Scientific_name' => $scientific_name, 'Quantity' => $quantity, 'Food' => $food, 'Native_area' => $native_area,
-					'Building_id' => $building_id, 'Species' => $species );
-			$nickname =$this->input->post("nickname"); 
+			$scientific_name = $this->input->post("Scientific_name");
+			$quantity = $this->input->post("Quantity");
+			$food = $this->input->post("Food");
+			$native_area = $this->input->post("Native_area");
+			$data['animal'] = array( 'Scientific_name' => $scientific_name, 'Quantity' => $quantity, 'Food' => $food, 'Native_area' => $native_area);
+			
+			$nickname =$this->input->post("Nickname"); 
 			$data['animal_name'] = array( 'Nickname' => $nickname );
 			
+			$description = $this->input->post("Description");
+					
 			//load database
 			$this->load->model("Animal_model");
 			$this->Animal_model->updateAnimal( $id, $data );
+			$bid = $this->input->get("BID");
+			$this->Animal_model->updateBuilding( $bid, $description );
 		}
 		
-		$data["pageTitle"] = "Zoo_edit";
-		$data['id'] = $this->Animal_model->getAnimalById( $id );
-		$this->load->view("edit", $data);
+		//$data['id'] = $this->Animal_model->getAnimalById( $id );
+		//$this->load->view("edit", $data);
+		$url = "/search/content?ID=".$id;
+		redirect(site_url($url));
 	}
 	
 	//the controller of deleting
@@ -156,8 +159,19 @@ class Search extends CI_Controller {
 		$this->load->model("Content_model");
 		$data['info'] = $this->Content_model->getContent($_GET["ID"]);
 		
-		$this->load->view('content', Array(
-				"pageTitle" => "Zoo_animal_content",
-				"data" => $data ));
+		$data['acct'] = $this->session->userdata('user');
+		if ( $data['acct'] != FALSE )
+		{
+			$this->load->view('content_controlling', Array(
+					"pageTitle" => "Zoo_animal_content_controlling",
+					"data" => $data ));
+		}
+		else
+		{
+			$this->load->view('content', Array(
+					"pageTitle" => "Zoo_animal_content",
+					"data" => $data ));			
+		}
+		
 	}
 }

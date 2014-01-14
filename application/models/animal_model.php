@@ -135,4 +135,9 @@ class Animal_model extends CI_Model {
 		}
 	}
 	
+	public function updateBuilding( $bid, $description )
+	{
+		$this->db->where("Building_id", $bid);
+		$this->db->update("building", array("Description" => $description) );
+	}
 }
