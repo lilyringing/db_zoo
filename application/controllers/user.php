@@ -23,12 +23,14 @@ class User extends CI_Controller {
 			return true;
 		}
 	
+		echo "ya";
 		$account = trim($this->input->post("UserID"));
 		$password = trim($this->input->post("password"));
 	
 		$this->load->model("User_model");
 		$user = $this->User_model->getUser($account,$password);
-	
+		
+		
 		if($user == null){
 			$this->load->view(
 	                "login",

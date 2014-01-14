@@ -17,7 +17,7 @@
 			
 			<div class="span5">
 			<div class="hero-unit">	
-				<form class="text-center" action="<?=site_url("user/loginging")?>" method="post">
+				<form class="text-center" action="<?=site_url("user/logining")?>" method="post">
 					<div class="form-group">
     					<label>帳號</label>
     					<input type="text" class="form-control input-lg" placeholder="請輸入帳號" name="UserID">
@@ -25,7 +25,7 @@
   		
   					<div class="form-group">
     					<label>密碼</label>
-    					<input type="text" class="form-control input-lg" placeholder="請輸入密碼" name="password">
+    					<input type="password" class="form-control input-lg" placeholder="請輸入密碼" name="password">
   					</div>
   		
   					<button type="submit" class="btn btn-primary">
