@@ -20,6 +20,11 @@
 			<div class="span10">
 			<?php if( isset($data) ){?>
 				<table class="table table-striped">
+					<tr>
+						<td><strong>編號</strong></td>
+						<td><strong>類別</strong></td>
+						<td><strong>名稱</strong></td>
+					</tr>
 					<?php foreach ($data['id'] as $element):?>
 					<tr>
 						<td><?php echo $element->No;?></td>

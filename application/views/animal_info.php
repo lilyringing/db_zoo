@@ -13,7 +13,7 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span2">
-			動物搜尋
+				<div class="text-center">動物搜尋</div>
 			</div>
 			
 			<div class="span10">
@@ -35,7 +35,7 @@
 		
 			<div class="row-fluid">
 				<div class="span2">
-				Result
+					<div class="text-center">搜尋結果</div>
 				</div>
 				<div class="span10">	
 					<?php if( isset($data) ){?>

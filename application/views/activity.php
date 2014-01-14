@@ -19,6 +19,12 @@
 			<div class="span10">
 			<?php if( isset($data) ){?>
 				<table class="table table-striped">
+					<tr>
+						<td><strong>名稱</strong></td>
+						<td><strong>展館</strong></td>
+						<td><strong>地點</strong></td>
+						<td><strong>時間</strong></td>
+					</tr>
 					<?php foreach ($data['act'] as $element):?>
 					<tr>
 						<td><?php echo $element->Activity_name;?></td>

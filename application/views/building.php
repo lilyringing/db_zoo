@@ -13,9 +13,10 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span2">
-			<!-- <a  href="javascript:search('searching')">展館搜尋</a> -->
+				<div class="text-center">展館搜尋</div>
+			<!-- <a  href="javascript:search('searching')">展館搜尋</a> 
 			<button type="button" class="btn btn-default btn-lg" onClick="setVisibility('searching', 'inline');">
-			展館搜尋</button>
+			展館搜尋</button>-->
 			</div>
 			
 			<div class="span10">
@@ -39,13 +40,17 @@
 		</div>
 		
 		<div class="row-fluid">
-			<div class="span2">
-				<button type="button" class="btn btn-default btn-lg" onClick="search()">展館一覽表</button>
+			<div class="span2">	
 			</div>
 			
 			<div class="span10">
-			<?php if( isset($data) ){?>
+			<?php if( isset($data['id']) ){?>
 				<table class="table table-striped">
+					<tr>
+						<td><strong>編號</strong></td>
+						<td><strong>館名</strong></td>
+						<td><strong>館長</strong></td>
+					</tr>
 					<?php foreach ($data['id'] as $element):?>
 					<tr>
 						<td><?php echo $element->Building_id;?></td>
@@ -55,6 +60,37 @@
 					<?php endforeach; ?>
 				</table>
 			<?php }?>
+			</div>
+		</div>
+		
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="text-center">
+					<div class="panel-group" id="accordion">
+  						<div class="panel panel-default">
+    						<div class="panel-heading">
+      							<h4 class="panel-title">
+        						<button type="button" class="btn btn-default btn-lg" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        						展館一覽表</button>
+      							</h4>
+    						</div>
+    						
+    						<div id="collapseOne" class="panel-collapse collapse">
+      						<div class="panel-body">
+      							<?php if( isset($data['building']) ){?>
+								<table class="table table-striped">
+									<?php foreach ($data['building'] as $element):?>
+									<tr>
+										<td><?php echo $element->Description;?></td>
+									</tr>
+									<?php endforeach; ?>
+								</table>
+								<?php }?>
+      						</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

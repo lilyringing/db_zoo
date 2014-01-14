@@ -14,6 +14,8 @@
 						<ul class="dropdown-menu">
           					<li><a href="<?=site_url("display/building")?>">展館位置</a></li>
           					<li><a href="<?=site_url("display/store")?>">商店位置</a></li>
+							<li class="divider"></li>
+							<li><a href="<?=site_url("display/traffic")?>">交通資訊</a></li>
 						</ul>
 					</li>
 					
