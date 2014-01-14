@@ -22,8 +22,14 @@
   					
 					<select class="selectpicker show-tick" name="SearchType">
 						<option value="Nickname">俗名</option>
+						<option value="Building">場館</option>
 						<option value="Food">食物</option>
 						<option value="Native_area">分布</option>
+						<option value="Kingdom">界</option>
+						<option value="Phylum">門</option>
+						<option value="Class">綱</option>
+						<option value="Order">目</option>
+						<option value="Family">科</option>
 					</select>
 		
 					<button type="submit" class="btn btn-primary">
@@ -43,14 +49,12 @@
 						<tr>
 							<td>動物名稱</td>
 							<td>學名</td>
-							<td>食物</td>
 						</tr>
 						<?php foreach ($data['id'] as $element):?>
 						<tr>
 							<td><a href="<?=site_url("search/content")?>?ID=<?php echo $element->Animal_id?>">
 								<?php echo $element->Nickname?></a></td>
 							<td><?php echo $element->Scientific_name;?></td>
-							<td><?php echo $element->Food;?></td>
 						</tr>
 						<?php endforeach; ?>			
 					</table>
