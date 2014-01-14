@@ -28,7 +28,7 @@
         				後台管理 <b class="caret"></b></a>
         				<ul class="dropdown-menu">
         					<li><a href="<?=site_url("search/animal_info")?>">修改動物資訊</a></li>
-        					<li><a href="<?=site_url("/")?>">新增動物</a></li>	
+        					<li><a href="<?=site_url("search/insert_animal")?>">新增動物</a></li>	
         				</ul>
 					</li>
 					<?php }?>

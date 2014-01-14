@@ -21,13 +21,13 @@ include ("_navbar.php");
 		<div class="row-fluid">
 			<div class="span2"></div>
 
-			<div class="span8">
-			<form method="post">
-					<table class="table">	
-					<tr>
+			<div class="span10">
+				<form method="post">
+					<table class="table">
+						<tr>
 							<td><?php echo "名稱:"?></td>
-							<td>
-								<input type="text" name="insert_nickname" />
+							<td>	
+								<input class="form-control" type="text" name="insert_nickname" />
 							</td>
 						</tr>
 						<tr>
@@ -43,25 +43,25 @@ include ("_navbar.php");
 						<tr>
 							<td><?php echo "食性:"?></td>
 							<td>
-								<input type="text" name="insert_food" />
+								<textarea class="form-control" rows="3" name="insert_food"></textarea>
 							</td>
 						</tr>
 						<tr>
 							<td><?php echo "原生地:"?></td>
 							<td>
-								<input type="text" name="insert_native_area" />
+								<textarea class="form-control" rows="2" name="insert_native_area"></textarea>
 							</td>
 						</tr>
 						<tr>
 							<td><?php echo "數量:"?></td>
 							<td>
-								<input type="text" name="insert_quantity" />
+								<input class="form-control" type="text" name="insert_quantity" />
 							</td>
 						</tr>
 						<tr>
 							<td><?php echo "學名:"?></td>
 							<td>
-								<input type="text" name="insert_scientific_name" />
+								<input class="form-control" type="text" name="insert_scientific_name" />
 							</td>
 						</tr>
 						<tr>
@@ -77,23 +77,25 @@ include ("_navbar.php");
 						<tr>
 							<td></td>
 							<td>
-								<button type="submit"
-									formaction="<?=site_url("search/inserting_animal")?>">Insert</button>
+								<button type="submit" class="btn btn-primary"
+									formaction="<?=site_url("search/inserting_animal")?>">
+									Insert</button>
 							</td>
 						</tr>
-
-				</table>
+				
+					</table>
 				</form>
 			</div>
-			<div class="span2"></div>
 		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery.js"></script>
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script
-		src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-	<script
-		src="http://silviomoreto.github.io/bootstrap-select/javascripts/bootstrap-select.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+	<script	src="http://silviomoreto.github.io/bootstrap-select/javascripts/bootstrap-select.js"></script>
+	 <script type="text/javascript">
+          $(document).ready(function(e) {
+              $('.selectpicker').selectpicker();
+          });
+    </script>
 </body>
