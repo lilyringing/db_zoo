@@ -14,48 +14,16 @@ class Animal_model extends CI_Model {
 		
 		if( $type == "Nickname" ){			
 			$this->db->like('Nickname', $text);
-			$query = $this->db->get();
-			
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else if( $type == "Food" ){
 			$this->db->like('Food', $text);
-			$query = $this->db->get();
-				
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}	
 		}
 		else if ($type == "Native_area"){
 			$this->db->like('Native_area', $text);
-			$query = $this->db->get();
-				
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else if ($type == "Building"){
 			$this->db->join('building', 'building.Building_id = animal.Building_id');
 			$this->db->like('Description', $text);
-			$query = $this->db->get();
-				
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else if ($type == "Kingdom"){
 			$this->db->join('genius_species', 'genius_species.Species = animal.Species');
@@ -65,14 +33,6 @@ class Animal_model extends CI_Model {
 			$this->db->join('phylum_class', 'phylum_class.Class = class_order.Class');
 			$this->db->join('kingdom_phylm', 'kingdom_phylm.Phylum = phylum_class.Phylum');
 			$this->db->like('Kingdom', $text);
-			$query = $this->db->get();
-				
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else if ($type == "Phylum"){
 			$this->db->join('genius_species', 'genius_species.Species = animal.Species');
@@ -81,14 +41,6 @@ class Animal_model extends CI_Model {
 			$this->db->join('class_order', 'class_order.Order = order_family.Order');
 			$this->db->join('phylum_class', 'phylum_class.Class = class_order.Class');
 			$this->db->like('Phylum', $text);
-			$query = $this->db->get();
-				
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else if ($type == "Class"){
 			$this->db->join('genius_species', 'genius_species.Species = animal.Species');
@@ -96,41 +48,25 @@ class Animal_model extends CI_Model {
 			$this->db->join('order_family', 'order_family.Family = family_genius.Family');
 			$this->db->join('class_order', 'class_order.Order = order_family.Order');
 			$this->db->like('Class', $text);
-			$query = $this->db->get();
-				
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else if ($type == "Order"){
 			$this->db->join('genius_species', 'genius_species.Species = animal.Species');
 			$this->db->join('family_genius', 'family_genius.Genius = genius_species.Genius');
 			$this->db->join('order_family', 'order_family.Family = family_genius.Family');
 			$this->db->like('Order', $text);
-			$query = $this->db->get();
-				
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
 		}
 		else{
 			$this->db->join('genius_species', 'genius_species.Species = animal.Species');
 			$this->db->join('family_genius', 'family_genius.Genius = genius_species.Genius');
-			$this->db->like('Family', $text);
-			$query = $this->db->get();
-				
-			if($query->num_rows() > 0){
-				return $query->result();
-			}
-			else{
-				return "no result.";
-			}
+			$this->db->like('Family', $text);		
+		}
+		
+		$query = $this->db->get();
+		if($query->num_rows() > 0){
+			return $query->result();
+		}
+		else{
+			return -1;
 		}
 	}
 	
@@ -149,7 +85,7 @@ class Animal_model extends CI_Model {
 			return $query->result();
 		}
 		else{
-			return "no result.";
+			return -1;
 		}	
 	}
 	

@@ -23,10 +23,9 @@ class Search extends CI_Controller {
 		$this->load->model("Animal_model");
 		if(isset($search_text)){
 			$data['id'] = $this->Animal_model->getAnimal($search_text, $search_type);
-			
 		}
 		else{
-			$error_message="";
+			$error_message="error";
 		}
 		
 		$this->load->view('animal_info', Array(

@@ -43,22 +43,30 @@
 				<div class="span2">
 					<div class="text-center">搜尋結果</div>
 				</div>
-				<div class="span10">	
-					<?php if( isset($data) ){?>
-					<table class="table table-striped">
-						<tr>
-							<td>動物名稱</td>
-							<td>學名</td>
-						</tr>
-						<?php foreach ($data['id'] as $element):?>
-						<tr>
-							<td><a href="<?=site_url("search/content")?>?ID=<?php echo $element->Animal_id?>">
-								<?php echo $element->Nickname?></a></td>
-							<td><?php echo $element->Scientific_name;?></td>
-						</tr>
-						<?php endforeach; ?>			
-					</table>
-					<?php }?>		
+				<div class="span10">
+					<?php if( isset($data['id'])){
+							if($data['id'] != -1){?> 
+								<table class="table table-striped">
+									<tr>
+										<td>動物名稱</td>
+										<td>學名</td>
+									</tr>
+								<?php foreach ($data['id'] as $element):?>
+									<tr>
+										<td><a href="<?=site_url("search/content")?>?ID=<?php echo $element->Animal_id?>">
+											<?php echo $element->Nickname?></a></td>
+										<td><?php echo $element->Scientific_name;?></td>
+									</tr>
+								<?php endforeach; ?>			
+								</table>
+						<?php }else{?>
+								<table class="table table-striped">
+									<tr>
+										<td><strong>抱歉，您搜尋的內容不存在，請確認是否選對搜尋類別!</strong></td>
+									</tr>
+								</table>
+						<?php }
+						}?>	
 				</div>
 			</div>
 		</div>
