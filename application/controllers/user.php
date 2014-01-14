@@ -2,6 +2,12 @@
   
 class User extends CI_Controller {
 	
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('session');
+	}
+	
 	public function login(){
 		$this->load->helper('url');
 		/* If user already login */
@@ -40,7 +46,7 @@ class User extends CI_Controller {
 			return true;
 		}
 	
-		$_SESSION["user"] = $user;
+		$this->session->set_userdata('user', $user);
 		redirect(site_url("/")); 	// turn to homepage
 	}//end logining
 	

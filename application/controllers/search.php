@@ -2,6 +2,12 @@
   
 class Search extends CI_Controller {
 	
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('session');
+	}
+	
 	public function animal_info(){
 		$this->load->helper('url');
 		$this->load->view('animal_info', Array(

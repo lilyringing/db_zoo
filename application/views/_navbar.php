@@ -24,9 +24,16 @@
 					
             	</ul>
             	</div>
-            	<ul class="nav pull-right">
-                	<li><a href="<?=site_url("user/login")?>">登入</a></li>
-            	</ul>
+            		<?php $session_id = $this->session->userdata('user');
+            			  if($session_id){?>
+            			  	<ul class="nav pull-right">
+            			  		<li>Hi! <?php echo $session_id->Account;?></li>
+            			  	</ul>
+            			  <?php }else{ ?>
+            			  <ul class="nav pull-right">
+                			<li><a href="<?=site_url("user/login")?>">登入</a></li>
+            			</ul>
+            		<?php }?>
         	</div>
     	</div>
 	</div>
